@@ -1,0 +1,22 @@
+.primary-body {
+  padding-block: 2rem;
+  width: 84%;
+  max-width: 60rem;
+  --gap: 2rem;
+}
+
+.primary-body section {
+  margin-bottom: 2rem;
+}
+
+@media only screen and (min-width: 35rem) {
+  .products-list {
+    grid-template-columns: repeat(2, minmax(10rem, 1fr));
+  }
+}
+
+@media only screen and (min-width: 55rem) {
+  .products-list {
+    grid-template-columns: repeat(3, minmax(10rem, 1fr));
+  }
+}
