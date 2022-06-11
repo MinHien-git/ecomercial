@@ -1,6 +1,10 @@
 import axiosClient from "./axiosClient";
 
 const authApi = {
+  login: (params) => {
+    const url = "/auth/login";
+    return axiosClient.get(url);
+  },
   register: (params) => {
     const url = "/auth/register";
     return axiosClient.get(url, { params });

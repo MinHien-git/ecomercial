@@ -1,8 +1,8 @@
 import { createSelector } from "reselect";
 
-const cartProduct = (state) => state.cart;
+const setAuth = (state) => state.cart;
 
-const auth = createSelector(cartProduct, (cart) => cart.cart);
+const auth = createSelector(setAuth, (cart) => auth.auth);
 
 const authSelector = {
   auth,

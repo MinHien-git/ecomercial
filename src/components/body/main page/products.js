@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import productSelector from "../../../store/selectors/productSelector";
 import ProductCard from "../../product-card";
 import SecondaryText from "../../secondary-text";
@@ -11,7 +12,7 @@ const ListProducts = () => {
       <SecondaryText text="Our Products" center={true} />
       <Title title="Explore our Products" center={true} />
       <div className="grid products-list">
-        {products.map((item) => (
+        {products.slice(0, 8).map((item) => (
           <ProductCard product={item} key={item.id} />
         ))}
       </div>
@@ -24,7 +25,9 @@ const ListProducts = () => {
         </button>
       </div>
       <button className="btn primary-bg fs-300 priamry-btn center">
-        <strong>View All</strong>
+        <Link className="font-clrs" to="/product">
+          <strong>View All</strong>
+        </Link>
       </button>
     </section>
   );

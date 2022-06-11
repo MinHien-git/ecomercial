@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import useScrollToTop from "../../../hooks/useScrollToTop";
 import cartAction from "../../../store/actions/cart";
 import cartSelector from "../../../store/selectors/cartSelector";
 import numberWithCommas from "../../display";
@@ -9,6 +11,7 @@ import SignUpForm from "../../sign-up-form";
 import "./body.css";
 import CartCard from "./cart-card";
 const ShoppingCart = () => {
+  useScrollToTop();
   const cartList = useSelector(cartSelector.cartProducts);
   let [amount, setAmount] = useState(0);
   const dispatch = useDispatch();
@@ -65,9 +68,12 @@ const ShoppingCart = () => {
             <h4 className="fs-300">Total:</h4>
             <p>{numberWithCommas((amount * 10) / 100 + amount + 25000)}₫</p>
           </div>
-          <button className="btn primary-bg fs-300 priamry-btn center">
+          <Link
+            className="btn primary-bg fs-300 priamry-btn center"
+            to="/checkout"
+          >
             <strong className="center">Check Out</strong>
-          </button>
+          </Link>
         </section>
         <SignUpForm />
       </main>

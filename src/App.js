@@ -10,6 +10,9 @@ import CheckOut from "./components/body/checkout page/body";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import productAction from "./store/actions/product";
+import ProductPage from "./components/body/product page/products";
+import AuthBody from "./components/body/auth page/body-login";
+import AuthBodySignin from "./components/body/auth page/body-sign-in";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,8 +24,13 @@ function App() {
     <div className="App background-clrs">
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route path="home" element={<MainPage />} />
-          <Route path="product" element={<ProductBody />} />
+          <Route path="" element={<MainPage />} />
+          <Route path="product/:id" element={<ProductBody />} />
+          <Route path="cart" element={<ShoppingCart />} />
+          <Route path="product" element={<ProductPage />} />
+          <Route path="checkout" element={<CheckOut />} />
+          <Route path="auth/login" element={<AuthBody />} />
+          <Route path="auth/register" element={<AuthBodySignin />} />
         </Route>
       </Routes>
       {/* <Router>

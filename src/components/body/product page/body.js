@@ -12,15 +12,13 @@ import RelatedProduct from "./related-product";
 import Review from "./reviews";
 const ProductBody = () => {
   useScrollToTop();
+
   const dispatch = useDispatch();
-  useEffect(() => {
-    console.log("run");
-    dispatch(productAction.fetchProductAsync());
-  }, [dispatch]);
+
   const products = useSelector(productSelector.selectProducts);
   const id = useParams();
-  const product = { ...products.find((element) => element.id === id.id) };
-
+  const product = products.find((element) => element.id === id.id);
+  console.log(product);
   return (
     <>
       <main className="primary-body center grid">

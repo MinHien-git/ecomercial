@@ -1,8 +1,7 @@
-import { BiSearchAlt2 } from "react-icons/bi";
-import { FiShoppingCart } from "react-icons/fi";
 import Cart from "../../asset/icons8-cart-48.png";
+import Profile from "../../asset/icons8-user-30.png";
+import Search from "../../asset/icons8-search-30.png";
 import { RiArrowDropRightFill } from "react-icons/ri";
-import { CgProfile } from "react-icons/cg";
 import { NavLink, Link } from "react-router-dom";
 import "./header.css";
 import { Outlet } from "react-router-dom";
@@ -153,12 +152,13 @@ const Header = () => {
               </li>
             </ul>
             <li>
-              <input
+              <Link
                 id="primary-navigation-items-login"
                 className="btn primary-bg fs-300 text-space"
-                type="submit"
-                value="login"
-              />
+                to="/auth/login"
+              >
+                Login
+              </Link>
             </li>
 
             <li>
@@ -169,19 +169,45 @@ const Header = () => {
           </ul>
 
           <ul id="nav-profile" className="primary-navigation-profile">
-            <button className="btn">
-              <BiSearchAlt2 />
-            </button>
-            <button className="btn">
-              <FiShoppingCart />
-            </button>
-            <button className="btn">
-              <CgProfile />
-            </button>
+            <li>
+              <Link
+                id="nav-search"
+                className={clsx(
+                  "btn font-clrs-bg img-btn",
+                  cartList.length > 0 && "notempty"
+                )}
+                to="/cart"
+              >
+                <img src={Search} alt="cart" />
+              </Link>
+            </li>
+            <li>
+              <Link
+                id="nav-cart"
+                className={clsx(
+                  "btn font-clrs-bg img-btn",
+                  cartList.length > 0 && "notempty"
+                )}
+                to="/cart"
+              >
+                <img src={Cart} alt="cart" />
+              </Link>
+            </li>
+            <li>
+              <Link
+                id="nav-auth"
+                className={clsx(
+                  "btn font-clrs-bg img-btn",
+                  cartList.length > 0 && "notempty"
+                )}
+                to="/auth/login"
+              >
+                <img src={Profile} alt="cart" />
+              </Link>
+            </li>
           </ul>
         </nav>
       </header>
-      <Outlet />
     </>
   );
 };

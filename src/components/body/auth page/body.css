@@ -1,0 +1,25 @@
+.primary-body {
+  padding-block: 2rem;
+  width: 84%;
+  max-width: 60rem;
+  --gap: 2rem;
+}
+
+.form-container {
+  width: 100%;
+  place-items: center;
+}
+
+.form-control {
+  position: relative;
+  width: 100%;
+  --gap: 1rem;
+}
+
+.form-control input {
+  background-color: transparent;
+  display: block;
+  width: 100%;
+  padding-inline-start: 1rem;
+  border-radius: 50rem;
+}

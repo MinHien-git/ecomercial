@@ -117,7 +117,9 @@ input[type="text"]::before {
   height: 18px;
   width: 18px;
 }
-#nav-cart {
+#nav-cart,
+#nav-search,
+#nav-auth {
   aspect-ratio: 1;
   width: 2rem;
   position: relative;
@@ -134,7 +136,9 @@ input[type="text"]::before {
   background-color: var(--primary-clr);
 }
 
-#nav-cart img {
+#nav-cart img,
+#nav-search img,
+#nav-auth img {
   width: 1.5rem;
   height: 1.5rem;
   aspect-ratio: 1;
@@ -144,13 +148,16 @@ input[type="text"]::before {
 }
 
 #primary-navigation-items-login {
-  width: 80vw;
+  width: 70vw;
   padding-block: 1rem;
   font-weight: bold;
   position: absolute;
   bottom: min(10rem, 20vh);
   right: 50%;
   transform: translateX(50%);
+  display: flex;
+  max-width: 20rem;
+  justify-content: center;
 }
 
 #primary-navigation-items-navitems-categories {
@@ -193,8 +200,15 @@ input[type="text"]::before {
     display: none;
   }
   #nav-profile {
-    display: inline;
-    width: 6rem;
+    display: flex;
+    gap: 1rem;
+    min-width: 6rem;
+  }
+  #nav-profile > * > * {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .primary-navigation {
     justify-content: space-around;
@@ -257,5 +271,11 @@ input[type="text"]::before {
   }
   #bar {
     display: none;
+  }
+}
+
+@media only screen and (min-width: 65rem) {
+  .primary-navigation {
+    justify-content: space-between;
   }
 }

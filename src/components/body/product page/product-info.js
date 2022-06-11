@@ -36,11 +36,19 @@ const ProductInfo = (props) => {
   };
   return (
     <section className="grid">
-      <img
-        src={img}
-        className="center displayed-image image-cover-clrs"
-        alt="current show product"
-      />
+      <div id="img-section" className="flex">
+        <div className="img-sm">
+          <div className="image image-cover-clrs"></div>
+          <div className="image image-cover-clrs"></div>
+          <div className="image image-cover-clrs"></div>
+        </div>
+        <img
+          id="main-image"
+          src={img}
+          className="center displayed-image image-cover-clrs"
+          alt="current show product"
+        />
+      </div>
       <div className="flex center button-align">
         <button className="btn left-right-nav image-cover-clrs font-clrs">
           &#60;
@@ -50,7 +58,7 @@ const ProductInfo = (props) => {
         </button>
       </div>
       <SecondaryText text="Selling Fast" center={true} />
-      <Title title={name} center={true} />
+      <h2 className="font-clrs fs-700 text-center">{name}</h2>
       <div className="flex product-card-info center">
         <a className="tag yellow-tag" href="#product/id">
           <h4 className="fs-300 bold">{category}</h4>
@@ -67,34 +75,36 @@ const ProductInfo = (props) => {
       <p className="center fs-300">
         <span className="low-opacity">SKU : </span>123456789
       </p>
-      <div className="amount-btn flex background-clrs center">
-        <button
-          className="btn font-clrs image-cover-clrs"
-          onClick={() => amountController("-")}
-        >
-          -
-        </button>
-        <p>{amount}</p>
-        <button
-          className="btn font-clrs image-cover-clrs"
-          onClick={() => amountController("+")}
-        >
-          +
-        </button>
-      </div>
-      <div className="flex center">
-        <button
-          className="btn primary-bg fs-300 priamry-btn"
-          onClick={addItemToCart}
-        >
-          <strong>Add to Cart</strong>
-        </button>
-        <button
-          className="btn left-right-nav image-cover-clrs img-btn"
-          onClick={() => setFav(!isFav)}
-        >
-          <img src={isFav ? FillHeart : Heart} alt="fav" />
-        </button>
+      <div className="flex center" id="product-navigation">
+        <div className="amount-btn flex background-clrs center">
+          <button
+            className="btn font-clrs image-cover-clrs"
+            onClick={() => amountController("-")}
+          >
+            -
+          </button>
+          <p>{amount}</p>
+          <button
+            className="btn font-clrs image-cover-clrs"
+            onClick={() => amountController("+")}
+          >
+            +
+          </button>
+        </div>
+        <div className="flex center">
+          <button
+            className="btn primary-bg fs-300 priamry-btn"
+            onClick={addItemToCart}
+          >
+            <strong>Add to Cart</strong>
+          </button>
+          <button
+            className="btn left-right-nav image-cover-clrs img-btn"
+            onClick={() => setFav(!isFav)}
+          >
+            <img src={isFav ? FillHeart : Heart} alt="fav" />
+          </button>
+        </div>
       </div>
     </section>
   );

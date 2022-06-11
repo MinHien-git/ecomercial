@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import useScrollToTop from "../../../hooks/useScrollToTop";
 import cartAction from "../../../store/actions/cart";
 
 import numberWithCommas from "../../display";
@@ -26,12 +27,16 @@ const CartCard = (props) => {
     calculatePrice();
   };
 
+  const clearProduct = () => {
+    dispatch(cartAction.removeProduct({ id: id }));
+  };
+
   return (
     <div className="cart-card flex-col-not-center">
       <img className="image-cover-clrs" src={img} alt="" />
       <h3 className="fs-400 font-clrs name-tag">{name}</h3>
       <p className="fs-300 font-clrs">{numberWithCommas(price.actual)}₫</p>
-      <div>
+      <div className="flex btn-align">
         <div className="amount-btn flex background-clrs center">
           <button className="btn" onClick={() => HandleAmount("-")}>
             -
@@ -46,6 +51,9 @@ const CartCard = (props) => {
             +
           </button>
         </div>
+        <button className="btn clear-btn" onClick={() => clearProduct()}>
+          X
+        </button>
       </div>
     </div>
   );

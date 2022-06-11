@@ -10,6 +10,10 @@
   --light-grey: #f6f7fb;
   --red-clrs: #ff0000;
   --yellow-clrs: 43 100% 57%;
+  --pink-clrs: 337 100% 70%;
+  --blue-clrs: 219 100% 58%;
+  --cya-clrs: 164 100% 40%;
+
   /* font size */
   --fs-300: 1rem;
   --fs-400: 1.5rem;
@@ -52,13 +56,21 @@ li {
 a {
   text-decoration: none;
 }
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+*::placeholder {
+  font-family: "Montserrat", sans-serif;
+}
 
 body,
 html,
 .App {
   font-family: "Montserrat", sans-serif;
   min-height: 100vh;
-  box-sizing: border-box;
   margin: 0;
   overflow-x: hidden;
   line-height: 1.5;
@@ -109,6 +121,10 @@ html,
   flex-direction: column;
   gap: var(--gap, 1rem);
 }
+
+.under-line {
+  text-decoration: underline;
+}
 /* utility */
 .secondary-clrs {
   color: var(--secondary-clr);
@@ -135,6 +151,21 @@ html,
   color: hsla(var(--yellow-clrs));
 }
 
+.blue-tag {
+  background-color: hsla(var(--blue-clrs) / 0.2);
+  color: hsla(var(--blue-clrs));
+}
+
+.pink-tag {
+  background-color: hsla(var(--pink-clrs) / 0.2);
+  color: hsla(var(--pink-clrs));
+}
+
+.cya-tag {
+  background-color: hsla(var(--cya-clrs) / 0.2);
+  color: hsla(var(--cya-clrs));
+}
+
 .primary-bg {
   background-color: var(--primary-clr);
   color: var(--accent-1-clrs);
@@ -149,6 +180,10 @@ html,
 
 .light-grey-clr {
   color: var(--light-grey);
+}
+
+.mid-opacity {
+  opacity: 0.9;
 }
 
 .low-opacity {
@@ -199,6 +234,10 @@ html,
   width: 100%;
   aspect-ratio: 1;
   border-radius: 2rem;
+}
+.width-btn {
+  width: 100%;
+  padding: 1.2rem;
 }
 .img-btn {
   display: flex;
@@ -277,7 +316,7 @@ html,
 
 .border-btn {
   border: 2px solid var(--light-grey);
-  padding-block: 0.9rem;
+  padding-block: 1.2rem;
 }
 
 .blog-review img {
@@ -313,6 +352,7 @@ html,
 .sign-up-form {
   margin-top: 1rem;
   --gap: 2rem;
+  flex-direction: column;
 }
 
 .sign-in-input {
@@ -328,6 +368,17 @@ html,
   z-index: 9;
   width: 100%;
 }
+.primary-body {
+  padding-block: 2rem;
+  width: 84%;
+  max-width: 60rem;
+  --gap: 2rem;
+}
+
+.primary-body section {
+  margin-bottom: 3rem;
+}
+
 @media only screen and (min-width: 35rem) {
   .secondary-text,
   .title {
@@ -353,5 +404,18 @@ html,
     position: absolute;
     right: 0;
     top: 3rem;
+  }
+
+  .product-image img {
+    width: 100%;
+    border-radius: 2rem;
+    height: 100%;
+  }
+
+  .sign-up-form {
+    flex-direction: row;
+  }
+  .form-section > * {
+    text-align: center;
   }
 }

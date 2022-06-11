@@ -3,10 +3,10 @@ import Title from "./section-title";
 
 const SignUpForm = () => {
   return (
-    <section className="grid">
+    <section className="grid form-section">
       <SecondaryText text="Our Newsletter" center={true} />
       <Title title="Sign Up to our Newsletter" center={true} />
-      <form className="grid sign-up-form">
+      <form className="flex sign-up-form">
         <input
           type="text"
           className="sign-in-input fs-300 font-clrs"

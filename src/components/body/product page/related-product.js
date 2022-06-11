@@ -16,10 +16,11 @@ const RelatedProduct = (props) => {
     <section className="grid">
       <SecondaryText text="Explore more" center={true} />
       <Title title="Related Products" center={true} />
-      {filtered.map((item) => (
-        <ProductCard key={item.id} product={item} />
-      ))}
-
+      <div className="grid products-list">
+        {filtered.map((item) => (
+          <ProductCard key={item.id} product={item} />
+        ))}
+      </div>
       <div className="flex center button-align">
         <button className="btn left-right-nav image-cover-clrs font-clrs">
           &#60;
