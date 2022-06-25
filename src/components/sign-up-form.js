@@ -9,10 +9,10 @@ const SignUpForm = () => {
       <form className="flex sign-up-form">
         <input
           type="text"
-          className="sign-in-input fs-300 font-clrs"
+          className="background-clrs sign-in-input fs-300 font-clrs"
           placeholder="Your Email"
         />
-        <button className="btn primary-bg fs-300 priamry-btn">
+        <button className="btn primary-bg fs-300 priamry-btn bg-clrs ">
           <strong>Sign Up</strong>
         </button>
       </form>

@@ -4,8 +4,8 @@ const CustomerReview = (props) => {
       <div className="circle border center image-cover-clrs flex">
         <img src={props.link} alt={props.link} className="border-image" />
       </div>
-      <h3 className="fs-500">{props.title}</h3>
-      <p className="fs-400 low-opacity">{props.reviews}</p>
+      <h3 className="fs-500 font-clrs">{props.title}</h3>
+      <p className="fs-400 font-clrs low-opacity">{props.reviews}</p>
     </div>
   );
 };

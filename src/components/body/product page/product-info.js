@@ -61,7 +61,7 @@ const ProductInfo = (props) => {
       <h2 className="font-clrs fs-700 text-center">{name}</h2>
       <div className="flex product-card-info center">
         <a className="tag yellow-tag" href="#product/id">
-          <h4 className="fs-300 bold">{category}</h4>
+          <h4 className="fs-300 bold ">{category}</h4>
         </a>
         <div className="flex product-card-info-pricetag fs-300">
           {price.old ? (
@@ -69,10 +69,10 @@ const ProductInfo = (props) => {
               {numberWithCommas(price.old)}
             </p>
           ) : null}
-          <p className="fs-400">{numberWithCommas(price.actual)}₫</p>
+          <p className="fs-400 font-clrs">{numberWithCommas(price.actual)}₫</p>
         </div>
       </div>
-      <p className="center fs-300">
+      <p className="center fs-300 font-clrs">
         <span className="low-opacity">SKU : </span>123456789
       </p>
       <div className="flex center" id="product-navigation">
@@ -83,7 +83,7 @@ const ProductInfo = (props) => {
           >
             -
           </button>
-          <p>{amount}</p>
+          <p className="font-clrs">{amount}</p>
           <button
             className="btn font-clrs image-cover-clrs"
             onClick={() => amountController("+")}

@@ -1,27 +1,34 @@
 import MainPage from "./components/body/main page/body";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import MainLayout from "./components/layout/main-layout";
 import ProductBody from "./components/body/product page/body";
-import CategoryBody from "./components/body/category page/body";
 import ShoppingCart from "./components/body/shopping cart page/body";
 import CheckOut from "./components/body/checkout page/body";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import productAction from "./store/actions/product";
+import themesSelector from "./store/selectors/themeSelector";
 import ProductPage from "./components/body/product page/products";
 import AuthBody from "./components/body/auth page/body-login";
 import AuthBodySignin from "./components/body/auth page/body-sign-in";
+import SearchPage from "./components/body/search page/body";
+import clsx from "clsx";
 
 function App() {
+  const theme = useSelector(themesSelector.selectThemes);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(productAction.fetchProductAsync());
   }, [dispatch]);
-
   return (
-    <div className="App background-clrs">
+    <div
+      className={clsx(
+        "App background-clrs",
+        theme === "dark" ? "darkmode" : null
+      )}
+    >
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route path="" element={<MainPage />} />
@@ -31,55 +38,9 @@ function App() {
           <Route path="checkout" element={<CheckOut />} />
           <Route path="auth/login" element={<AuthBody />} />
           <Route path="auth/register" element={<AuthBodySignin />} />
+          <Route path="search" element={<SearchPage />} />
         </Route>
       </Routes>
-      {/* <Router>
-        <Routes>
-          <Route path="" element={<MainLayout />}>
-            {/* <Route path="home">
-              <MainPage />
-            </Route>
-            <Route path="product">
-              <ProductBody />
-            </Route> 
-          </Route>
-           <Route path="/product">
-            <Route path="/product/"></Route>
-            <Route
-              path="/product/:id"
-              element={
-                <MainLayout>
-                  <ProductBody />
-                </MainLayout>
-              }
-            ></Route>
-          </Route>
-          <Route
-            path="/category"
-            element={
-              <MainLayout>
-                <CategoryBody />
-              </MainLayout>
-            }
-          ></Route>
-          <Route
-            path="/cart"
-            element={
-              <MainLayout>
-                <ShoppingCart />
-              </MainLayout>
-            }
-          ></Route>
-          <Route
-            path="/checkout"
-            element={
-              <MainLayout>
-                <CheckOut />
-              </MainLayout>
-            }
-          ></Route> 
-        </Routes>
-      </Router> */}
     </div>
   );
 }

@@ -15,7 +15,6 @@ const fetchProductAsync = (id) => async (dispatch) => {
     const { products } = await productApi.getAll();
     dispatch(fetchProduct(products));
   } else {
-    console.log(id);
     const { product } = await productApi.get(id);
     dispatch(fetchProduct(product));
   }

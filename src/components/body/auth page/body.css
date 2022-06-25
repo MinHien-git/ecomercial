@@ -8,6 +8,7 @@
 .form-container {
   width: 100%;
   place-items: center;
+  max-width: 35rem;
 }
 
 .form-control {
@@ -22,4 +23,12 @@
   width: 100%;
   padding-inline-start: 1rem;
   border-radius: 50rem;
+}
+
+@media only screen and (min-width: 55rem) {
+  .responsive-flex {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }

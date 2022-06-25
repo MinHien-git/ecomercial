@@ -21,8 +21,8 @@ const Blog = () => {
           &#62;
         </button>
       </div>
-      <button className="btn primary-bg fs-300 priamry-btn center">
-        <strong>View All</strong>
+      <button className="btn primary-bg fs-300 priamry-btn center ">
+        <strong className="font-clrs">View All</strong>
       </button>
     </section>
   );

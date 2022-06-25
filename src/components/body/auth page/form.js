@@ -37,12 +37,14 @@ const Form = () => {
         <button className="btn primary-bg fs-300 width-btn" type="submit">
           <strong>Login</strong>
         </button>
-        <Link className="font-clrs fs-300" to="/auth/register">
-          <strong>Create Account</strong>
-        </Link>
-        <Link className="font-clrs under-line" to="/auth/token">
-          Forgot password
-        </Link>
+        <div className="flex-column responsive-flex">
+          <Link className="font-clrs fs-300" to="/auth/register">
+            <strong>Create Account</strong>
+          </Link>
+          <Link className="font-clrs under-line low-opacity" to="/auth/token">
+            Forgot password?
+          </Link>
+        </div>
       </form>
     </section>
   );

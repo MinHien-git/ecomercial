@@ -92,35 +92,43 @@ const CheckoutState = () => {
           </ul>
         </div>
       </section>
-      {state === 0 ? (
-        <StateOne CheckOutState={CheckOutState} />
-      ) : state === 1 ? (
-        <StateTwo CheckOutState={CheckOutState} />
-      ) : state === 2 ? (
-        <StateThree CheckOutState={CheckOutState} />
-      ) : (
-        <StateFour />
-      )}
-      <section className="grid border-btn" id="cart-page">
-        <h3 className="fs-400 font-clrs">Cart</h3>
-        <div className="grid">
-          {products.map((item) => (
-            <CartCard product={item} />
-          ))}
-        </div>
-        <div className="flex checkout-cart-total">
-          <p>Total:</p>
-          <p>{numberWithCommas(amount)}₫</p>
-        </div>
-        <div className="grid">
-          <button
-            className="font-clrs fs-300 btn border-btn width-btn"
-            style={{ backgroundColor: "transparent" }}
-          >
-            <strong>Edit Cart</strong>
-          </button>
-        </div>
-      </section>
+      <div id="checkout-display" className="center">
+        {state === 0 ? (
+          <StateOne CheckOutState={CheckOutState} />
+        ) : state === 1 ? (
+          <StateTwo CheckOutState={CheckOutState} />
+        ) : state === 2 ? (
+          <StateThree CheckOutState={CheckOutState} />
+        ) : (
+          <StateFour />
+        )}
+        <section className="grid border-btn" id="cart-page">
+          <h3 className="fs-400 font-clrs">Cart</h3>
+          <div className="grid" id="display-item">
+            {products.map((item) => (
+              <CartCard product={item} />
+            ))}
+          </div>
+          <div className="flex checkout-cart-total">
+            <p>Total:</p>
+            <p>{numberWithCommas(amount)}₫</p>
+          </div>
+          <div className="grid">
+            <Link
+              className="font-clrs fs-300 btn border-btn width-btn"
+              style={{
+                backgroundColor: "transparent",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              to="/cart"
+            >
+              <strong>Edit Cart</strong>
+            </Link>
+          </div>
+        </section>
+      </div>
     </>
   );
 };

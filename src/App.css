@@ -23,18 +23,23 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  /* :root {
     --font-clr: #f7fafc;
     --secondary-clr: #2975ff;
     --primary-clr: #00cc96;
     --accent-1-clrs: #f6f7fb;
     --background-clrs: #14141b;
     --light-grey: #1e1e27;
-  }
+  } */
+}
 
-  .secondary-tag {
-    border: 0;
-  }
+.darkmode {
+  --font-clr: #f7fafc;
+  --secondary-clr: #2975ff;
+  --primary-clr: #00cc96;
+  --accent-1-clrs: #f6f7fb;
+  --background-clrs: #14141b;
+  --light-grey: #1e1e27;
 }
 
 ul,
@@ -172,7 +177,17 @@ html,
 }
 
 .font-clrs-bg {
+  border: 1px solid var(--font-clr);
+  background: transparent;
+}
+
+.darkmode .font-clrs-bg {
   background: var(--font-clr);
+}
+
+.borderdiv {
+  border: 1px solid var(--font-clr);
+  background: var(--background-clr);
 }
 .image-cover-clrs {
   background-color: var(--light-grey);
@@ -288,6 +303,10 @@ html,
   padding: 0.5rem 1rem;
   border-radius: 2rem;
   top: 1rem;
+  border: 0;
+}
+
+.darkmode .secondary-tag {
   border: 2px solid black;
 }
 
@@ -356,7 +375,8 @@ html,
 }
 
 .sign-in-input {
-  border: 0;
+  border: 1px solid var(--font-clr);
+  background: transparent;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   height: 3.5rem;
@@ -367,6 +387,9 @@ html,
   text-align: left;
   z-index: 9;
   width: 100%;
+}
+
+.darkmode .sign-in-input {
 }
 .primary-body {
   padding-block: 2rem;

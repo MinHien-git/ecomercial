@@ -50,29 +50,33 @@ const ShoppingCart = () => {
             <CartCard key={item.id} product={item} count={countPrice} />
           ))}
         </section>
-        <section className="flex-col-not-center cart-total">
+        <section className="flex-col-not-center cart-total borderdiv">
           <h3 className="fs-400 font-clrs">Cart Total</h3>
           <div>
-            <p className="fs-300">Subtotal:</p>
-            <p>{numberWithCommas(amount)}₫</p>
+            <p className="fs-300 font-clrs">Subtotal:</p>
+            <p className="font-clrs">{numberWithCommas(amount)}₫</p>
           </div>
           <div>
-            <p className="fs-300">Tax:</p>
-            <p>{numberWithCommas((amount * 10) / 100)}₫</p>
+            <p className="fs-300 font-clrs">Tax:</p>
+            <p className="font-clrs">
+              {numberWithCommas((amount * 10) / 100)}₫
+            </p>
           </div>
           <div>
-            <p className="fs-300">Shipping:</p>
-            <p>{numberWithCommas(25000)}₫</p>
+            <p className="fs-300 font-clrs">Shipping:</p>
+            <p className=" font-clrs">{numberWithCommas(25000)}₫</p>
           </div>
           <div>
-            <h4 className="fs-300">Total:</h4>
-            <p>{numberWithCommas((amount * 10) / 100 + amount + 25000)}₫</p>
+            <h4 className="fs-300 font-clrs">Total:</h4>
+            <p className="font-clrs">
+              {numberWithCommas((amount * 10) / 100 + amount + 25000)}₫
+            </p>
           </div>
           <Link
             className="btn primary-bg fs-300 priamry-btn center"
             to="/checkout"
           >
-            <strong className="center">Check Out</strong>
+            <strong className="center font-clrs">Check Out</strong>
           </Link>
         </section>
         <SignUpForm />

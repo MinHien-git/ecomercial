@@ -59,8 +59,40 @@
   aspect-ratio: 1;
   height: 100%;
   background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-align {
   justify-content: space-around;
+}
+
+@media only screen and (min-width: 35rem) {
+  .cart-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-inline: 1rem;
+  }
+
+  .cart-card img {
+    width: 25%;
+    align-self: flex-start;
+    aspect-ratio: 1;
+  }
+  .cart-card h3 {
+    text-align: left;
+  }
+  .cart-card > div.flex-column {
+    align-items: flex-start;
+    width: 50%;
+  }
+
+  .cart-card p {
+    align-self: flex-start;
+  }
+  .btn-align {
+    height: 3rem;
+  }
 }

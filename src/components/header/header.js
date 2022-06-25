@@ -2,10 +2,9 @@ import Cart from "../../asset/icons8-cart-48.png";
 import Profile from "../../asset/icons8-user-30.png";
 import Search from "../../asset/icons8-search-30.png";
 import { RiArrowDropRightFill } from "react-icons/ri";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, Navigate } from "react-router-dom";
 import "./header.css";
-import { Outlet } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { useSelector } from "react-redux";
 import cartSelector from "../../store/selectors/cartSelector";
@@ -13,13 +12,34 @@ import cartSelector from "../../store/selectors/cartSelector";
 const Header = () => {
   const [isActive, setActive] = useState(false);
   const [toggle, setToggle] = useState(false);
+  const [searchContent, SetSearchContent] = useState("");
+  const [goto, Setgoto] = useState(false);
+  const [search, SetSearch] = useState(false);
   const cartList = useSelector(cartSelector.cartProducts);
   const handleToggle = (get, set) => {
     set(!get);
   };
 
+  const onChangingValue = (e) => {
+    e.preventDefault();
+    SetSearchContent(e.target.value);
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    Setgoto(true);
+  };
+
+  useEffect(() => {
+    if (goto === true) {
+      Setgoto(false);
+      setActive(false);
+    }
+  }, [goto]);
+
   return (
     <>
+      {goto ? <Navigate to={`/search?search=${searchContent}`} /> : null}
       <header className="re primary-header">
         <nav className="flex re primary-navigation center background-clrs">
           <div
@@ -34,7 +54,7 @@ const Header = () => {
             <span></span>
             <span></span>
           </div>
-          <Link id="logo" className="fs-700" to="/">
+          <Link id="logo" className="fs-700 font-clrs" to="/">
             LOGO
           </Link>
           <Link
@@ -55,12 +75,16 @@ const Header = () => {
             )}
           >
             <li>
-              <input
-                id="primary-navigation-items-search"
-                className="fs-400 re"
-                type="text"
-                placeholder="Search"
-              />
+              <form onSubmit={onSubmit}>
+                <input
+                  id="primary-navigation-items-search"
+                  className="fs-400 re font-clrs background-clrs"
+                  type="text"
+                  placeholder="search"
+                  name="search"
+                  onChange={onChangingValue}
+                />
+              </form>
             </li>
             <ul className="flex primary-navigation-items-navitems">
               <li>
@@ -162,24 +186,58 @@ const Header = () => {
             </li>
 
             <li>
-              <img src={require("../../style/instagram.png")} alt="instagram" />
-              <img src={require("../../style/twitter.png")} alt="twitter" />
-              <img src={require("../../style/facebook.png")} alt="facebook" />
+              <img
+                src={require("../../style/instagram.png")}
+                alt="instagram"
+                className="font-clrs-bg"
+                style={{ borderRadius: "50%" }}
+              />
+              <img
+                src={require("../../style/twitter.png")}
+                alt="twitter"
+                className="font-clrs-bg"
+                style={{ borderRadius: "50%" }}
+              />
+              <img
+                src={require("../../style/facebook.png")}
+                alt="facebook"
+                className="font-clrs-bg"
+                style={{ borderRadius: "50%" }}
+              />
             </li>
           </ul>
 
           <ul id="nav-profile" className="primary-navigation-profile">
             <li>
-              <Link
+              <div
                 id="nav-search"
                 className={clsx(
                   "btn font-clrs-bg img-btn",
                   cartList.length > 0 && "notempty"
                 )}
-                to="/cart"
               >
-                <img src={Search} alt="cart" />
-              </Link>
+                <img
+                  src={Search}
+                  alt="cart"
+                  onClick={() => {
+                    SetSearch(!search);
+                  }}
+                />
+                <form
+                  id="hidden-search"
+                  onSubmit={onSubmit}
+                  className={clsx(search && "hidden")}
+                >
+                  <input
+                    id="secondary-navigation-items-search"
+                    className="fs-400 abs"
+                    type="text"
+                    placeholder="search"
+                    name="search"
+                    onChange={onChangingValue}
+                  />
+                </form>
+              </div>
             </li>
             <li>
               <Link
