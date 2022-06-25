@@ -1,22 +1,11 @@
-import axiosClient from "./axiosClient";
+import axiosClient from './axiosClient'
 
-const authApi = {
-  login: (params) => {
-    const url = "/auth/login";
-    return axiosClient.get(url);
-  },
-  register: (params) => {
-    const url = "/auth/register";
-    return axiosClient.get(url, { params });
-  },
-  logout: (id) => {
-    const url = `/auth/logout`;
-    return axiosClient.get(url);
-  },
-  refreshToken: (id) => {
-    const url = `/auth/refreshToken`;
-    return axiosClient.get(url);
-  },
-};
+import axiosClient from './axiosClient'
 
-export default authApi;
+const authService = {
+	logout: () => axiosClient.patch('auth/logout'),
+	login: data => axiosClient.post('auth/login', data),
+	register: data => axiosClient.post('auth/register', data)
+}
+
+export default authService
