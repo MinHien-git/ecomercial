@@ -2,15 +2,21 @@ import { authenActionType } from "../actions/auth";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-const initialState = {
-  account: {},
-  isLogined: false,
-  isLoading: false,
-};
-const authReducer = (state = initialState, action) => {
+const authReducer = (state = { auth: {} }, action) => {
   switch (action.type) {
     case authenActionType.login:
-      return state;
+      const newState = {
+        ...state,
+        auth: {
+          account: action.payload.user,
+          isLogined: true,
+          isLoading: false,
+        },
+      };
+
+      return {
+        ...newState,
+      };
     default:
       return state;
   }

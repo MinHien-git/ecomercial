@@ -15,6 +15,7 @@ import AuthBody from "./components/body/auth page/body-login";
 import AuthBodySignin from "./components/body/auth page/body-sign-in";
 import SearchPage from "./components/body/search page/body";
 import clsx from "clsx";
+import ProfilePage from "./components/body/auth page/profile";
 
 function App() {
   const theme = useSelector(themesSelector.selectThemes);
@@ -39,6 +40,7 @@ function App() {
           <Route path="auth/login" element={<AuthBody />} />
           <Route path="auth/register" element={<AuthBodySignin />} />
           <Route path="search" element={<SearchPage />} />
+          <Route path="auth/profile" element={<ProfilePage />} />
         </Route>
       </Routes>
     </div>

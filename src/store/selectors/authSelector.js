@@ -1,11 +1,11 @@
-import { createSelector } from '@reduxjs/toolkit'
+import { createSelector } from "reselect";
 
-const selectAuthBranch = state => state.auth
+const selectAuthBranch = (state) => state.auth;
 
-const selectIsloading = createSelector(selectAuthBranch, auth => auth.isLoading)
+const selectIsloading = createSelector(selectAuthBranch, (auth) => auth.auth);
 
 const authSelector = {
-	selectIsloading
-}
+  selectIsloading,
+};
 
-export default authSelector
+export default authSelector;
