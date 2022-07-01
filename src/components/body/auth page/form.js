@@ -9,7 +9,7 @@ import authSelector from "../../../store/selectors/authSelector";
 const Form = () => {
   const [user, SetUser] = useState({ email: "", password: "" });
   const dispatch = useDispatch();
-  const onLogin = useSelector(authSelector.selectIsloading.isLogined);
+  const onLogin = useSelector(authSelector.selectIsloading);
 
   const onChange = (e) => {
     SetUser({
@@ -21,12 +21,11 @@ const Form = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(actionType.userLoginFetch(user));
-    console.log(onLogin);
   };
 
   return (
     <>
-      {onLogin ? <Navigate to="/auth/profile" /> : null}
+      {onLogin.isLogined ? <Navigate to="/auth/profile" /> : null}
       <section className="grid">
         <SecondaryText text="Login" />
         <Title title="Login to Your Account" />
