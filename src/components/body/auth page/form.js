@@ -9,7 +9,7 @@ import authSelector from "../../../store/selectors/authSelector";
 const Form = () => {
   const [user, SetUser] = useState({ email: "", password: "" });
   const dispatch = useDispatch();
-  const onLogin = useSelector(authSelector.selectIsloading);
+  const onLogin = useSelector(authSelector.selectIsloading.isLogined);
 
   const onChange = (e) => {
     SetUser({
